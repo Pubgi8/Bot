@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VIPOWNER 3.9 VIP Key Purchase</title>
+  <style>
+    body {
+      background: #000;
+      color: #00f5ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin: 50px auto;
+      padding: 30px;
+      max-width: 350px;
+      border: 2px solid #00f5ff;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00f5ff;
+    }
+    h1 {
+      font-size: 22px;
+      text-shadow: 0 0 10px #00f5ff;
+    }
+    select, button, a.pay-link {
+      width: 100%;
+      display: block;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      text-decoration: none;
+      text-align: center;
+    }
+    select {
+      background-color: #000;
+      color: #00f5ff;
+      border: 1px solid #00f5ff;
+    }
+    button, .pay-link {
+      background-color: #00f5ff;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00f5ff;
+    }
+    button:hover, .pay-link:hover {
+      background-color: #00c4cc;
+    }
+    a {
+      color: black;
+    }
+    img.qr {
+      width: 200px;
+      margin: 10px auto;
+      border: 2px solid #00f5ff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00f5ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔑 VIPOWNER 3.9 VIP Key Purchase 🔑</h1>
+    <label>App:</label>
+    <select id="duluxType">
+      <option value="VIPOWNER">VIPOWNER</option>
+    </select>
+    <label>Select Amount:</label>
+    <select id="amount">
+      <option value="">Select Amount</option>
+      <option value="1">₹100 - 1 Day</option>
+      <option value="7">₹500 - 7 Days</option>
+      <option value="30">₹1500 - 30 Days</option>
+    </select>
+    <button onclick="purchase()">Confirm Plan</button>
+
+    <!-- UPI Payment Buttons -->
+    <h3>💸 Pay via UPI</h3>
+    <a class="pay-link" href="upi://pay?pa=pawankumar72010@fam&pn=VIPOWNER&am=100&cu=INR">Pay ₹100 - 1 Day</a>
+    <a class="pay-link" href="upi://pay?pa=pawankumar72010@fam&pn=VIPOWNER&am=500&cu=INR">Pay ₹500 - 7 Days</a>
+    <a class="pay-link" href="upi://pay?pa=pawankumar72010@fam&pn=VIPOWNER&am=1500&cu=INR">Pay ₹1500 - 30 Days</a>
+
+    <!-- QR Code Image -->
+    <h3>📷 UPI QR Code (Scan & Pay)</h3>
+    <img class="qr" src="https://upiqr.in/api/qr?name=VIPOWNER&vpa=pawankumar72010@fam" alt="QR Code">
+
+    <!-- Contact Admin -->
+    <button><a href="https://wa.me/918126675318" target="_blank">Contact Admin</a></button>
+
+    <!-- Reset Key -->
+    <button onclick="resetKey()">Reset Key</button>
+  </div>
+
+  <script>
+    function purchase() {
+      const dulux = document.getElementById("duluxType").value;
+      const amount = document.getElementById("amount").value;
+      if (!amount) {
+        alert("Please select an amount!");
+        return;
+      }
+      const amountText = amount === "1" ? "₹100" : amount === "7" ? "₹500" : "₹1500";
+      alert(`You selected ${amountText} for ${amount} Day(s)`);
+    }
+
+    function resetKey() {
+      window.location.href = "https://wa.me/918126675318?text=Please%20reset%20my%20VIPOWNER%20key";
+    }
+  </script>
+</body>
+</html>
